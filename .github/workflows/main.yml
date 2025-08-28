@@ -1,0 +1,27 @@
+# This workflow's name, which will appear in the GitHub Actions tab.
+name: Greeting Workflow
+
+# Specifies when the workflow will run.
+# It's set to run on 'push' events, but only on the 'main' branch.
+on:
+  push:
+    branches:
+      - main
+
+# Defines the jobs that will run in this workflow.
+jobs:
+  greeting-job:
+    # Specifies the type of runner (virtual machine) to use.
+    # 'ubuntu-latest' is a standard choice.
+    runs-on: ubuntu-latest
+    
+    # Defines the steps within the 'greeting-job'.
+    steps:
+      # This step uses a pre-built GitHub action to check out the repository's code.
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # This is the core step that logs the message to the console.
+      - name: Log message to console
+        run: echo "Hello, a new change has been pushed to the main branch!"
+
